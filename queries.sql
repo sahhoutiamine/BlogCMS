@@ -107,3 +107,12 @@ INSERT INTO comments (comment_id, content, create_date, author_username, article
 (23, 'Important de parler de sécurité informatique.', '2024-03-16', 'thomas_petit', 22),
 (24, 'Je dors mal, merci pour ces conseils.', '2024-03-17', 'julie_roux', 23),
 (25, 'J''ai visité certains villages, ils sont magnifiques !', '2024-03-18', 'marc_vincent', 24);
+
+
+
+-- add column to tables 
+ALTER TABLE articles 
+ADD article_status varchar(100) DEFAULT "published";
+
+ALTER TABLE comments 
+ADD comment_type varchar(100) DEFAULT "normal";
