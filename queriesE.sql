@@ -30,3 +30,39 @@ SELECT DISTINCT role FROM users;
 
 -- 9. AND/OR - Articles par catégorie et statut
 select * from articles where category_id =(SELECT category_id from categories WHERE category_name = "Technologie");
+
+
+-- 10. BETWEEN - Commentaires par période
+SELECT * FROM comments WHERE create_date BETWEEN '2024-12-01' AND '2024-12-15';
+
+
+
+-- 11. IN - Articles par catégories multiples
+SELECT * FROM articles WHERE category_id IN (SELECT category_id from categories WHERE category_name IN ('PHP', 'JavaScript', 'Base de données'));
+
+
+-- 12. LIKE - Recherche par email
+SELECT * FROM users WHERE email LIKE '%@gmail.com';
+
+
+
+-- 13. COUNT() - Statistique articles
+SELECT COUNT(*) AS articles_total FROM articles;
+
+
+
+-- 14. COUNT() avec GROUP BY - Articles par catégorie
+SELECT category_id, COUNT(*) AS articles_nmbr FROM articles GROUP BY category_id;
+
+-- 15. AVG() - Longueur moyenne des articles
+SELECT AVG(LENGTH(content)) AS content_avg FROM articles WHERE article_status = "Published";
+
+
+-- 16. MAX()/MIN() - Dates extrêmes
+SELECT MAX(create_date) AS last_one FROM articles WHERE statut = "Published";
+
+SELECT MIN(create_date) AS first_one FROM comments;
+
+
+
+
